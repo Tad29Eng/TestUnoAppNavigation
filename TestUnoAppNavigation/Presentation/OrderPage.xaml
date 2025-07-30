@@ -34,12 +34,15 @@
                         Grid.Row="1">
                 <AppBarButton Icon="Refresh"
                               Label="Refresh"
+                              x:Uid="AbbRefresh"
                               Command="{Binding RefreshCmdAsync}" />
                 <AppBarButton Icon="Save"
                               Label="Save"
+                              x:Uid="AbbSave"
                               Command="{Binding SaveCmdAsync}" />
                 <AppBarButton Icon="Back"
                               Label="Back"
+                              x:Uid="AbbClodse"
                               Command="{Binding CloseCmdAsync}" />
             </CommandBar>
 
