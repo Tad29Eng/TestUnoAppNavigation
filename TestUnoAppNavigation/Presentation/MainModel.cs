@@ -77,7 +77,7 @@ public partial record MainModel
     {
         var pageShowParam = new OrderPageShowParam(
            ShowVariant: ShowEntityDetailPageVariants.ViewEntity,
-           Code: 40000001);
+           Code: 41);
 
         await _navigator.NavigateViewModelAsync<OrderModel>(this, data: pageShowParam);
 

@@ -16,7 +16,7 @@
             Margin="10"
             MaxWidth="1024">
 
-        <Grid RowDefinitions="Auto,Auto,Auto,*"
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
               Margin="5">
 
             <!--<utu:NavigationBar Grid.Row="0"
@@ -44,22 +44,35 @@
             </CommandBar>
 
             <TextBox Grid.Row="2"
-                     Visibility="{Binding IsCodeForFindVisible}"
-                     Text="{Binding CodeForFind, Mode=TwoWay}" />
+                     Header="Code for find"
+                     Visibility="{Binding IsFindVisible}"
+                     Text="{Binding CodeForFind, Mode=TwoWay}"
+                     Margin="0,0,0,10"/>
 
-            <mvux:FeedView Grid.Row="3"
-                           Source="{Binding Order}">
+            <Button Grid.Row="3"
+                    Visibility="{Binding IsFindVisible}"
+                    Command="{utu:AncestorBinding AncestorType=Page, Path=DataContext.FindCmdAsync}"
+                    HorizontalAlignment="Stretch"
+                    x:Uid="BtnFind" />
+
+            <mvux:FeedView Grid.Row="4"
+                           Source="{Binding Order}"
+                           Margin="0,20,0,0">
 
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
 
                         <TextBox DataContext="{Binding Data}"
+                                 Header="Code"
                                  IsReadOnly="True"
-                                 Text="{Binding Code, Mode=OneWay}" />
+                                 Text="{Binding Code, Mode=OneWay}"
+                                 Margin="0,0,0,5"/>
                         <TextBox DataContext="{Binding Data}"
+                                 Header="Name"
                                  Text="{Binding Name, Mode=TwoWay}" />
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,5,0,0">
 
                             <!--<Button Command="{Binding Refresh}"
                                     HorizontalAlignment="Stretch"
